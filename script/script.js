@@ -1,6 +1,6 @@
 
 function clima_principal() {
-  const url = `http://api.weatherapi.com/v1/forecast.json?key=cf5151ce4fda4f35a26115148252804&days=5&q=Bucaramanga`;
+  const url = `https://api.weatherapi.com/v1/forecast.json?key=cf5151ce4fda4f35a26115148252804&days=5&q=Bucaramanga`;
   const ciudad = document.getElementById("editable");
   const rain = document.getElementById("cuadros1");
   let pepito = new XMLHttpRequest();
