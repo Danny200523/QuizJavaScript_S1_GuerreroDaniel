@@ -56,4 +56,3 @@ function clima_principal() {
   pepito.send(); // Envía la solicitud
 }
 
-clima_principal();
