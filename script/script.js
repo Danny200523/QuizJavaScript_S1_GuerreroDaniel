@@ -1,6 +1,10 @@
+window.onload = function(){
+  clima_principal();
+};
+
 
 function clima_principal() {
-  const url = `https://api.weatherapi.com/v1/forecast.json?key=cf5151ce4fda4f35a26115148252804&days=5&q=Bucaramanga`;
+  const url = `https://api.weatherapi.com/v1/forecast.json?key=89cacd5521774b6e9a0115125252904&days=5&q=Bucaramanga`;
   const ciudad = document.getElementById("editable");
   const rain = document.getElementById("cuadros1");
   let pepito = new XMLHttpRequest();
@@ -23,16 +27,34 @@ function clima_principal() {
                                     <div class="fecha">
                                     <p class="fec">${response.location.localtime}</p>
                                     </div>`;
-        rain.innerHTML = `
-                <div class="air_speed">
-                    <img src="./storage/storage/img/air.png" alt="" />
-                    <b>Wind Speed</b>
-                    <b>${response.wind_kph} KM/H</b>
-                </div>
-                <div class="rain_change">
-                    <img src="./storage/storage/img/rainy.png" alt="" />
-                    <b>Rain Change</b>
-                </div>`;
+        if (response.location.localtime.substring(6,7)=== "4"){
+          ciudad.innerHTML = `<div class="superior">
+                                    <p class="ciudad">${response.location.name}, ${response.location.region}</p>
+                                    <img class="img_lupa" src="./storage/storage/img/search_white.png" alt=""/>
+                                    </div>
+                                    <div class="nube">
+                                    <p class="temp">${response.current.temp_c}°</p>
+                                    <p class="feel">Feels Like ${response.current.feelslike_c}°</p>
+                                    <div class="flex1">
+                                    <img class="imc_ico" src="${response.current.condition.icon}" alt=""/>
+                                    <p class="text_ico">${response.current.condition.text}</p>
+                                    </div>
+                                    </div>
+                                    <div class="fecha">
+                                    <p class="fec">ABRIL ${response.location.localtime.substring(9,10)}, ${response.location.localtime.substring(12,16)}</p>
+                                    </div>`;
+        }
+        rain.innerHTML = `<div class="air_speed">
+                          <img src="./storage/storage/img/air.png" alt="" />
+                          <div class="flex">
+                          <b>Wind Speed</b>
+                          <b class="valor_air">${response.current.wind_kph} KM/H</b>
+                          </div>
+                          </div>
+                          <div class="rain_change">
+                          <img src="./storage/storage/img/rainy.png" alt="" />
+                          <b>Rain Change</b>
+                          </div>`;
         console.log("¡Funciona!");
         console.log(this.readyState);
         console.log(this.status);
@@ -51,6 +73,4 @@ function clima_principal() {
     ciudad.innerHTML = `<p>No se pudo conectar al servidor</p>`;
   };
   pepito.send(); // Envía la solicitud
-}
-
-clima_principal();
+};

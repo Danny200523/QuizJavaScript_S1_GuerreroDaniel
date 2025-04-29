@@ -42,15 +42,27 @@
         margin-left: 3vw;
     }
     .temp{
-        margin-left: 8vw;
+        margin-left: 3vw;
         font-size: 17vw;
         margin-top: 12vw;
+    }
+    .flex1{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .text_ico{
+        margin-top: -6vw;
+    }
+    .feel{
+        margin-top: 10vw;
+        font-size: 3vw;
     }
     .imc_ico{
         width: 40vw;
         height: 40vw;
-        margin-left: 15vw;
-        margin-top: -20vw;
+        margin-top: -30vw;
     }
     .superior{
         display: flex;
@@ -61,6 +73,9 @@
         display: flex;
         margin-top: -6vw;
         margin-left: 10vw;
+    }
+    .fec{
+        font-size: 4vw;
     }
     .img_lupa{
         width: 5vw;
@@ -90,12 +105,12 @@
         background-color: #E0B6FF;
         border: 1px solid #E0B6FF;
     }
-    .cuadros1,.cuadros2{
+    #cuadros1,#cuadros2{
         display: flex;
         gap: 2vw;
         margin-top: 5vw;
     }
-    .cuadros2{
+    #cuadros2{
         margin-top: 2.5vw;
     }
     .air_speed,.rain_change,.pressure,.UV_index{
@@ -120,6 +135,13 @@
     }
     .pressure b {
         margin-left: 2vw;
+    }
+    .flex{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 3vw;
     }
 
 }
