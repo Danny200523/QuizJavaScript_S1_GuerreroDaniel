@@ -1,6 +1,3 @@
-window.onload = function () {
-  clima_principal();
-};
 
 function clima_principal() {
   const url = `http://api.weatherapi.com/v1/forecast.json?key=cf5151ce4fda4f35a26115148252804&days=5&q=Bucaramanga`;
@@ -56,3 +53,4 @@ function clima_principal() {
   pepito.send(); // Envía la solicitud
 }
 
+clima_principal();
