@@ -3,14 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>HTTP Cat Status</title>
+
 </head>
-<img id="img_new" src=""/>
-<form action="">
-    <input id="status" type="text" placeholder="casa">
-    <input type="submit" value="mandar">
-</form>
 <body>
+    <h1>Visualizador de HTTP Cat Status</h1>
+    
+    <form>
+        <input id="status" type="text" placeholder="Ingresa un código HTTP (ej: 404, 200, 500)">
+        <input type="submit" value="Ver imagen">
+    </form>
+    
+    <div id="img_new">
+        
+    </div>
+    
+    <p>Ejemplos de códigos que puedes probar: 100, 200, 201, 301, 304, 400, 401, 403, 404, 500, 503...</p>
+    
     <script src="./script.js"></script>
 </body>
 </html>

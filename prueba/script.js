@@ -1,17 +1,29 @@
+window.onload = function(){
+    document.querySelector('form').addEventListener('submit', function(event){
+        event.preventDefault();
+        cat();
+    });
+};
+
 function cat(){
-    let img = document.getElementById("img_new");
+    let imgContainer = document.getElementById("img_new");
     let val = document.getElementById("status").value;
+    
     let url = `https://http.cat/${val}`;
-    console.log(val)
-    let pepito = new XMLHttpRequest();
-    pepito.open("GET",url);
-    pepito.onreadystatechange = function(){
-        if (this.status === 200 && this.readyState===4){
-            img.innerHTML = `<img src="${url}"/>`;
-        }
-        else{
-            console.log("No funciono")
-        }
+    
+    const img = new Image();
+
+    img.onload = function() {
+        console.log("Imagen cargada correctamente");
+        imgContainer.innerHTML = ''; // Limpiar contenedor
+        imgContainer.innerHTML = `<img src="${url}"/>`;
     };
+    
+    img.onerror = function() {
+        console.log("Error al cargar la imagen");
+        imgContainer.innerHTML = `<p>Error al cargar la imagen para el código ${val}. 
+                               Asegúrate de que sea un código HTTP válido.</p>`;
+    };
+    
+    img.src = url;
 }
-cat();
